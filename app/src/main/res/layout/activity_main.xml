@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
+        <LinearLayout
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/principal"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            tools:ignore="MissingConstraints">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FirebaseDemo"
+                    android:layout_margin="17dp"
+                    android:textColor="@color/base"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+        </LinearLayout>
         <TextView
             android:id="@+id/tv_nome"
             android:layout_width="wrap_content"
@@ -15,7 +38,7 @@
             android:textAlignment="textEnd"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
             />
         <TableLayout
             android:layout_width="match_parent"
@@ -25,23 +48,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-        <TableRow>
-                <Button
-                    android:id="@+id/editar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="editar"
-                    android:textSize="14sp"
-                    android:layout_margin="15dp" />
-                <Button
-                    android:id="@+id/sair"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="sair"
-                    android:textSize="14sp"
-                    android:layout_margin="15dp" />
-        </TableRow>
+                <TableRow>
+                        <Button
+                            android:id="@+id/editar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="editar"
+                            android:textSize="14sp"
+                            android:layout_margin="15dp" />
+                        <Button
+                            android:id="@+id/sair"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="sair"
+                            android:textSize="14sp"
+                            android:layout_margin="15dp" />
+                </TableRow>
         </TableLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

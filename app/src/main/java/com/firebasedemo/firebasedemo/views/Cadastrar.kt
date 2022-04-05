@@ -20,6 +20,7 @@ class Cadastrar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
+        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
         tv_cadastrar.setOnClickListener{view ->
             if(tv_nome.text.toString() == ""){

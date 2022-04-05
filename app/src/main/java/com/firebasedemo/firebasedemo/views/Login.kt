@@ -17,6 +17,7 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
         tv_entrar.setOnClickListener {view ->
             if (tv_email.text.toString() == "") {

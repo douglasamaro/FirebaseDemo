@@ -9,7 +9,12 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.firebasedemo.firebasedemo.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
@@ -28,8 +33,13 @@ class EditarUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_user)
+        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
+//        val standardBottomSheetBehavior = BottomSheetBehavior.from(standard_bottom_sheet)
         progressBar.visibility = View.GONE
+
+        standard_bottom_sheet.visibility = View.GONE
+        //standardBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
 
         val usered = Firebase.auth.currentUser
         ed_nome.setText(usered?.displayName)
@@ -41,19 +51,50 @@ class EditarUser : AppCompatActivity() {
                         .setAction("Action", null)
                         .show()
                 } else {
-                    salvar(ed_email.text.toString(), ed_nome.text.toString(), view)
+                    standard_bottom_sheet.visibility = View.VISIBLE
+                  //  standardBottomSheetBehavior.state = View.STATE_EXPANDED
                 }
             }
-            cancelar.setOnClickListener{
+
+            cancelar.setOnClickListener {
                 toMain()
             }
+
+            bottomsheet_button.setOnClickListener { view ->
+                if (senha.text.toString() == "") {
+                    Snackbar.make(view, "os campos não podem estar vazios", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null)
+                        .show()
+                } else {
+                    login(ed_email.text.toString(), ed_nome.text.toString(), senha.text.toString(), view)
+                }
+            }
+
+        standard_bottom_sheet.setOnClickListener {
+            standard_bottom_sheet.visibility = View.GONE
+        }
     }
+
 
     private fun toMain() {
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()
+    }
+
+    private fun login(emaild: String, nome: String, senha: String, view: View) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(user?.email.toString(), senha)
+            .addOnCompleteListener(
+                OnCompleteListener<AuthResult> { task ->
+                    if (task.isSuccessful) {
+                        val firebaseUser: FirebaseUser = task.result!!.user!!
+                        salvar(emaild, nome, view)
+                    } else {
+                        Toast.makeText(this, task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            )
     }
 
     private fun salvar(emaild: String, nome: String, view: View) {
@@ -77,8 +118,12 @@ class EditarUser : AppCompatActivity() {
                     if(task.isSuccessful) {
                         resultado = true
                     }
+                    else {
+                        val msg: String = task.exception.toString()
+                        Log.d(TAG, "resultado --> $msg")
+                    }
                 }
-           delay(3000)
+            delay(3000)
             if (resultado) {
                 Snackbar.make(view, "suas edições foram salvas", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null)

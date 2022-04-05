@@ -5,7 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.Login">
-
+    <LinearLayout
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/principal"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FirebaseDemo"
+            android:layout_margin="17dp"
+            android:textColor="@color/base"
+            android:textAlignment="textEnd"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:textColor="@color/detalhe"
             android:layout_marginBottom="30dp"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -32,6 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
+            android:textSize="14sp"
+            android:textColor="@color/detalhe"
             android:layout_marginTop="15dp"
             />
         <EditText
@@ -39,8 +64,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="meuemail@email.com"
-            android:background="@drawable/button_background"
-            android:textSize="13sp"
+            android:background="@drawable/back_input"
+            android:textColor="@color/detalhe"
+            android:textSize="14sp"
             android:padding="12dp"
             android:layout_marginTop="2dp"/>
 
@@ -48,16 +74,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Senha"
+            android:textSize="14sp"
+            android:textColor="@color/detalhe"
             android:layout_marginTop="25dp"
             />
         <EditText
             android:id="@+id/tv_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:padding="12dp"
             android:hint="********"
-            android:background="@drawable/button_background"
+            android:textColor="@color/detalhe"
+            android:background="@drawable/back_input"
             android:layout_marginTop="2dp"/>
 
         <TextView
@@ -65,6 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="não tem conta? dastre-se"
+            android:textColor="@color/detalhe"
             android:layout_marginTop="25dp"
             android:textAlignment="textEnd"
             android:textSize="12sp"
