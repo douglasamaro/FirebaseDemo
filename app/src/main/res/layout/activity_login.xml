@@ -78,16 +78,27 @@
             android:textColor="@color/detalhe"
             android:layout_marginTop="25dp"
             />
-        <EditText
-            android:id="@+id/tv_senha"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/tv_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:padding="12dp"
+                android:hint="********"
+                android:textColor="@color/detalhe"
+                android:background="@drawable/back_input"
+                android:layout_marginTop="2dp"/>
+        <CheckBox
+            android:id="@+id/show_passwordl"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:hint="********"
-            android:textColor="@color/detalhe"
-            android:background="@drawable/back_input"
-            android:layout_marginTop="2dp"/>
+            android:button="@drawable/checkbox_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_navegacao"

@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="Nome"
             android:textSize="14sp"
             android:textColor="@color/detalhe"
             android:layout_marginTop="15dp"
@@ -150,70 +150,66 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/standard_bottom_sheet"
-        android:background="@color/graythin"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
     <FrameLayout
         android:id="@+id/bottomsheet"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:background="@drawable/frame_color"
         style="?attr/bottomSheetStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="50dp"
-        android:orientation="vertical">
-        <!-- Bottom sheet contents. -->
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="para continuar confirme sua senha"
-            android:textColor="@color/detalhe"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/senha"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="12dp"
-            android:textColorHint="@color/detalhe"
-            android:background="@drawable/back_input"
-            android:hint="senha"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_height="match_parent"
+            android:paddingTop="0dp"
+            android:orientation="vertical">
+            <!-- Bottom sheet contents. -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="para continuar confirme sua senha"
+                android:textColor="@color/detalhe"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/senha"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="12dp"
+                android:textColorHint="@color/detalhe"
+                android:background="@drawable/back_input"
+                android:hint="senha"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bottomsheet_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/principal"
-            android:src="@drawable/ic_done"
-            android:contentDescription="salvar"
-            android:layout_margin="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/bottomsheet_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/principal"
+                android:src="@drawable/ic_done"
+                android:contentDescription="salvar"
+                android:layout_margin="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/senha"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

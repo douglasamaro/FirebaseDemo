@@ -33,13 +33,10 @@ class EditarUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_user)
-        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
-//        val standardBottomSheetBehavior = BottomSheetBehavior.from(standard_bottom_sheet)
         progressBar.visibility = View.GONE
 
-        standard_bottom_sheet.visibility = View.GONE
-        //standardBottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        bottomsheet.visibility = View.GONE
 
         val usered = Firebase.auth.currentUser
         ed_nome.setText(usered?.displayName)
@@ -51,8 +48,7 @@ class EditarUser : AppCompatActivity() {
                         .setAction("Action", null)
                         .show()
                 } else {
-                    standard_bottom_sheet.visibility = View.VISIBLE
-                  //  standardBottomSheetBehavior.state = View.STATE_EXPANDED
+                    bottomsheet.visibility = View.VISIBLE
                 }
             }
 
@@ -70,9 +66,9 @@ class EditarUser : AppCompatActivity() {
                 }
             }
 
-        standard_bottom_sheet.setOnClickListener {
-            standard_bottom_sheet.visibility = View.GONE
-        }
+//        standard_bottom_sheet.setOnClickListener {
+//            standard_bottom_sheet.visibility = View.GONE
+//        }
     }
 
 
@@ -84,6 +80,7 @@ class EditarUser : AppCompatActivity() {
     }
 
     private fun login(emaild: String, nome: String, senha: String, view: View) {
+        progressBar.visibility = View.VISIBLE
         FirebaseAuth.getInstance().signInWithEmailAndPassword(user?.email.toString(), senha)
             .addOnCompleteListener(
                 OnCompleteListener<AuthResult> { task ->

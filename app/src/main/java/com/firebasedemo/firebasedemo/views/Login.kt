@@ -1,23 +1,31 @@
 package com.firebasedemo.firebasedemo.views
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.graphics.toColor
 import com.firebasedemo.firebasedemo.R
+import com.firebasedemo.firebasedemo.R.drawable.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_cadastrar.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.tv_email
+import kotlinx.android.synthetic.main.activity_login.tv_senha
 
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        //setSupportActionBar(findViewById(R.id.my_toolbar))
 
         tv_entrar.setOnClickListener {view ->
             if (tv_email.text.toString() == "") {
@@ -37,6 +45,17 @@ class Login : AppCompatActivity() {
             val inte = Intent(this, Cadastrar::class.java)
             inte.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(inte)
+        }
+
+//        if (!show_passwordl.isChecked) {
+//            show_passwordl.buttonDrawable = getDrawable(ic_eye_closed)
+//        }
+
+        show_passwordl.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (!isChecked) {
+               show_passwordl.buttonDrawable = getDrawable(ic_eye_closed)
+                Toast.makeText(this, "Checked", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

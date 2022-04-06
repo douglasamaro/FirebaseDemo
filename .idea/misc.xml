@@ -5,7 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable/back_input.xml" value="0.18" />
         <entry key="app/src/main/res/drawable/button_background.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/checkbox_back.xml" value="0.20615384615384616" />
         <entry key="app/src/main/res/drawable/frame_color.xml" value="0.20615384615384616" />
+        <entry key="app/src/main/res/drawable/ic_eye_closed.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_eye_open.xml" value="0.209375" />
         <entry key="app/src/main/res/layout/activity_cadastrar.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_editar_user.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.15" />
