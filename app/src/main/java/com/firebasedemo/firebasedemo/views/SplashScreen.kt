@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@SuppressLint("CustomSplashScreen")
+//@SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

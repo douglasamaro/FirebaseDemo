@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.FirebaseDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/base</item>
+        <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/principal</item>
         <item name="colorOnPrimary">@color/detalhe</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/base</item>
+        <item name="colorSecondary">@color/gray</item>
         <item name="colorSecondaryVariant">@color/principal</item>
         <item name="colorOnSecondary">@color/detalhe</item>
         <!-- Status bar color. -->

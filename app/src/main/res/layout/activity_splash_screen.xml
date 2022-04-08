@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/detalhe"
     tools:context=".views.SplashScreen">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spalch Screen"
-        android:textSize="20sp"
+        android:text="Welcome"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="@color/base"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

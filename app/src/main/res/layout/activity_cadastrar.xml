@@ -9,7 +9,7 @@
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/principal"
+        android:background="@color/detalhe"
         android:elevation="4dp"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
@@ -60,7 +60,7 @@
             android:layout_marginTop="15dp"
             />
             <EditText
-                android:id="@+id/tv_nome"
+                android:id="@+id/tc_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Seu Nome"
@@ -78,7 +78,7 @@
             android:textColor="@color/detalhe"
             android:layout_marginTop="15dp"/>
             <EditText
-                android:id="@+id/tv_email"
+                android:id="@+id/tc_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="meuemail@email.com"
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/tv_senha"
+                android:id="@+id/tc_senha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/detalhe"
@@ -114,7 +114,8 @@
                 android:id="@+id/show_passwordc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:button="@drawable/checkbox_back"
+                android:checked="false"
+                android:button="@drawable/ic_eye_closed"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -133,7 +134,54 @@
             android:layout_height="wrap_content"
             android:text="Cadastrar"
             android:textSize="14sp"
+            android:backgroundTint="@color/base"
             android:layout_marginTop="25dp"/>
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progressBarC"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/graythin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="@color/detalhe"
+            app:layout_constraintEnd_toEndOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="25dp"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Salvando"
+                    android:textSize="17sp"
+                    android:textColor="@color/base"
+                    android:textStyle="bold"
+                    android:paddingBottom="15dp"
+                    android:textAlignment="center"/>
+                <ProgressBar
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -18,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_cadastrar.*
 import kotlinx.android.synthetic.main.activity_editar_user.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
@@ -56,6 +59,10 @@ class EditarUser : AppCompatActivity() {
                 toMain()
             }
 
+            close_bottomsheet.setOnClickListener {
+                bottomsheet.visibility = View.GONE
+             }
+
             bottomsheet_button.setOnClickListener { view ->
                 if (senha.text.toString() == "") {
                     Snackbar.make(view, "os campos não podem estar vazios", Snackbar.LENGTH_SHORT)
@@ -66,11 +73,21 @@ class EditarUser : AppCompatActivity() {
                 }
             }
 
-//        standard_bottom_sheet.setOnClickListener {
-//            standard_bottom_sheet.visibility = View.GONE
-//        }
-    }
+        if(!show_passworde.isChecked) {
+            show_passworde.buttonDrawable = getDrawable(R.drawable.ic_eye_closed)
+            senha.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
 
+        show_passworde.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                show_passworde.buttonDrawable = getDrawable(R.drawable.ic_eye_open)
+                senha.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                show_passworde.buttonDrawable = getDrawable(R.drawable.ic_eye_closed)
+                senha.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
+    }
 
     private fun toMain() {
         val intent = Intent(this, MainActivity::class.java)
@@ -89,6 +106,7 @@ class EditarUser : AppCompatActivity() {
                         salvar(emaild, nome, view)
                     } else {
                         Toast.makeText(this, task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                        progressBar.visibility = View.GONE
                     }
                 }
             )
